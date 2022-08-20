@@ -1,8 +1,8 @@
 # Setup
 🏠[To Home Page](README.md)
 
-We use Raspberry Pi as developement enviroment (you need also internet).<br>
-But it is possible to develope on other platforms (e.g. Windows).<br>
+We use Raspberry Pi as development environment (you need also internet).<br>
+But it is possible to develop on other platforms (e.g. Windows).<br>
 You can use any Raspberry Pi computer and OS (32/64bit).<br>
 But a fast Raspberry Pi is nice, when you compile large programs.<br>
 
@@ -20,7 +20,7 @@ make -v
 ```
 
 We require **Node.js**<br>
-The easyiest way is to install Node-Red.<br>
+The easiest way is to install Node-Red.<br>
 Node.js and npm is then also installed.
 [How look here.📌](https://nodered.org/docs/getting-started/raspberrypi)
 
@@ -50,22 +50,22 @@ sudo apt install code
 Open Visual Studio Code (Left-Top Raspberry->Programming->Visual Studio Code).<br>
 On first start of Visual Studio Code enter settings or skip.<br>
 On Left-Top side on Visual Studio Code you see four rectangle. One flees.<br>
-Here you can install Visual Studio Code extenstions.<br>
+Here you can install Visual Studio Code extensions.<br>
 Install Microsoft extension for C/C++.<br>
 
 ![VSC Extension](/images/vsextension.png "VSC Extension")
 
 ## Setup IntelliSense in VSC
-Visual Studio Code has a powerfull IntelliSense feature.<br>
+Visual Studio Code has a powerful IntelliSense feature.<br>
 Next setup the IntelliSense Configuration.<br>
 The editor runs in background a C++ compiler for syntax check.<br>
-We tell IntelliSense where the include files are stored.<br>
+We tell IntelliSense where they include files are stored.<br>
 
 In Visual Studio Code select menu ***View->Command Palette...***.<br>
 On list select ***C/C++: Edit Configurations (UI)***.<br>
 A new window with C/C++ ***IntelliSense Configuration*** opens.<br>
 Scroll down list until you see section ***Include path***.<br>
-Add this lines:
+Add these lines:
 ```
 /usr/lib/node_modules/node-addon-api
 /usr/include/node
@@ -76,5 +76,12 @@ NAPI_DISABLE_CPP_EXCEPTIONS
 ```
 Save the settings with ***File->Save*** and close settings windows.<br>
 
+📍Tip: Visual Studio Code creates a folder with name ***.vscode*** on working folder.<br>
+The settings above are valid only for actual workspace and are stored in file<br>
+***c_cpp_properties.json***<br>
+You can also edit this file with editor.<br>
+If you create a new workspace, create a subfolder ***.vscode***<br>
+and copy ***c_cpp_properties.json*** file to that folder.<br>
+All settings are then valid for the new workspace.<br>
 
 [🧾Next: Create Native Code Example sayhello ](create.md)

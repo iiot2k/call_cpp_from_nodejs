@@ -8,7 +8,7 @@ For our new native code we create the working folder ***sayhello***.
 
 Select menu ***File->Open Folder ...***<br> 
 Folder dialog opens. On right top click folder icon with plus sign.<br>
-Enter name for new folder, in our case ***sayhello*** and click ***Create*** button.<br>
+Enter name for new folder, in our case ***sayhello*** and click ***Create File*** button.<br>
 Close folder dialog with click ***Open***.<br>
 Our working folder is now ***/usr/pi/sayhello***<br>
 
@@ -66,7 +66,7 @@ Parameters and other data are stored in ```CallbackInfo &info```.<br>
 ```c++
     return String::New(info.Env(), "Hello");
 ```
-The function ***sayhello*** retuns a ```Value```.<br>
+The function ***sayhello*** returns a ```Value```.<br>
 This is the topmost class of all node.js C++ datatypes.<br> 
 We create and return a ```String```.<br>
 This elements are explained later in detail.<br>

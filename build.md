@@ -1,15 +1,14 @@
 # Build Native Code Example sayhello
 🏠[To Home Page](README.md)
 
-On previous chapter we create the C++ vative code example ***sayhello.cpp***.<br>
+On previous chapter we create the C++ native code example ***sayhello.cpp***.<br>
 Now we build the sayhello.cpp C++ code.<br>
-Compiling C/C on commandline is very complicated.<br>
+Compiling C/C++ by commandline is little complicated.<br>
 Therefore we use the python script ***node-gyp***.<br>
 ***node-gyp*** needs a JSON file with name ***binding.gyp***.<br>
-It creates the makefile and compiles the C++ native code.
 
 Select menu ***File->New File ...***<br>
-Enter ***binding.gyp*** and press **enter** key then ***Create*** button.<br>
+Enter ***binding.gyp*** and press **enter** key then ***Create File*** button.<br>
 
 Type this JSON definition in editor:
 
@@ -34,7 +33,7 @@ Menu ***Terminal->New Terminal*** opens the command line on bottom<br>
 and sets to working folder.<br>
 Here you can enter any linux commands.<br>
 
-To create the compile enviroment, enter on command line:<br>
+To create the compile environment, enter on command line:<br>
 ```
 node-gyp configure
 ```
@@ -53,7 +52,7 @@ else node-gyp prompts with ```gyp info ok```.<br>
 Tadaa, we have now our first native code ***sayhello.node*** in folder<br>
 */home/pi/sayhello/build/Release/*
 
-***node-gyp*** has other helpfull commands:
+***node-gyp*** has other helpful commands:
 
 To delete the build folder:<br>
 ```
