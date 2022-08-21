@@ -3,7 +3,7 @@
 [![platform](https://img.shields.io/badge/platform-Raspberry--Pi-ff69b4)](https://www.raspberrypi.com/)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZDRCZBQFWV3A6)
 
-This little tutorial will show you how to get started with call C++ from ***Node.js***.<br>
+This little tutorial will show you how to get started with using C++ programs with ***Node.js***.<br>
 
 It's possible to call C++ functions from Node.js directly.<br>
 [More Info here📌](https://nodejs.org/api/n-api.html)<br>
