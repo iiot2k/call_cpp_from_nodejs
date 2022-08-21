@@ -34,9 +34,18 @@ sudo npm install -g node-gyp
 Other smart people writes C++ wrapper header files for native modules.<br> 
 This command installs the [node-addon-api📌](https://github.com/nodejs/node-addon-api) header files in folder<br>
 */usr/lib/node_modules/node-addon-api*<br>
+
 ```
 sudo npm install -g node-addon-api
 ```
+You can install ***node-addon-api*** also local on home folder<br>
+*/home/pi/node_modules/node-addon-api*<br>
+Please adjust any include paths to the install folder.<br> 
+```
+cd ~
+sudo npm install node-addon-api
+```
+
 **node-gyp** and ***node-addon-api*** are maintained by Node.js team.<br>
 
 We need also an editor.<br> 

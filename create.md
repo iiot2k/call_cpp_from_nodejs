@@ -3,14 +3,14 @@
 🏠[To Home Page](README.md)
 
 Open Visual Studio Code (if not already open). <br>
-At first start of Visual Studio Code the folder ***/usr/pi/*** is selected.<br>
+At first start of Visual Studio Code the folder ***/home/pi/*** is selected.<br>
 For our new native code we create the working folder ***sayhello***.
 
 Select menu ***File->Open Folder ...***<br> 
 Folder dialog opens. On right top click folder icon with plus sign.<br>
-Enter name for new folder, in our case ***sayhello*** and click ***Create File*** button.<br>
+Enter name for new folder, in our case ***sayhello*** and click ***Create*** button.<br>
 Close folder dialog with click ***Open***.<br>
-Our working folder is now ***/usr/pi/sayhello***<br>
+Our working folder is now ***/home/pi/sayhello***<br>
 
 We are now ready to write our first native code.<br>
 
