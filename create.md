@@ -47,8 +47,8 @@ What this lines of code means ?<br>
 #include <napi.h>
 ```
 This includes the **napi.h** file on compile.<br>
-The file contains C++ wrapper interface elements to **node.js**.<br>
-To use elements of **napi.h** you must use the namespace ```Napi::```<br>
+The file contains C++ wrapper interface elements to **Node.js**.<br>
+To use elements of **napi.h** you must use the namespace name ```Napi::```<br>
 For example to create a String ```Napi::String```<br>
 In second example I show how prevent this.<br> 
 
