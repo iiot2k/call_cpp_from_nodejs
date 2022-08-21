@@ -1,17 +1,15 @@
 #include <napi.h>
 
-using namespace Napi;
-
 // function sayhello
-Value sayhello(const CallbackInfo &info)
+Napi::Value sayhello(const Napi::CallbackInfo &info)
 {
-    return String::New(info.Env(), "Hello");
+    return Napi::String::New(info.Env(), "Hello");
 }
 
 // function adds symbols to export list
-Object export_all(Env env, Object exports)
+Napi::Object export_all(Napi::Env env, Napi::Object exports)
 {
-    exports.Set("sayhello", Function::New(env, sayhello));
+    exports.Set("sayhello", Napi::Function::New(env, sayhello));
     return exports;
 }
 

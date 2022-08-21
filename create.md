@@ -23,19 +23,17 @@ Type this program in editor:
 ```c++
 #include <napi.h>
 
-using namespace Napi;
-
 // function sayhello
-Value sayhello(const CallbackInfo &info)
+Napi::Value sayhello(const Napi::CallbackInfo &info)
 {
-    return String::New(info.Env(), "Hello");
+    return Napi::String::New(info.Env(), "Hello");
 }
 
-// function adds symbols to export list 
-Object export_all(Env env, Object exports)
+// function adds symbols to export list
+Napi::Object export_all(Napi::Env env, Napi::Object exports)
 {
-    exports.Set("sayhello", Function::New(env, sayhello));
-	return exports;
+    exports.Set("sayhello", Napi::Function::New(env, sayhello));
+    return exports;
 }
 
 // macro exports all symbols
@@ -50,31 +48,27 @@ What this lines of code means ?<br>
 ```
 This includes the **napi.h** file on compile.<br>
 The file contains C++ wrapper interface elements to **node.js**.<br>
-```c++
-using namespace Napi;
-```
-C++ use *namespace* for references elements. For file *napi.h* the namespace is **Napi**.<br>
-For example to define a **String** you must write ```Napi::String```.<br>
-This command omits to write the namespace name.<br>
-The compiler adds the namespace prefix to symbols.<br>
+To use elements of **napi.h** you must use the namespace ```Napi::```<br>
+For example to create a String ```Napi::String```
+In second example I show how prevent this.<br> 
 
 ```c++
-Value sayhello(const CallbackInfo &info)
+Napi::Value sayhello(const Napi::CallbackInfo &info)
 ```
 This function is called from Node.js.<br> 
 Parameters and other data are stored in ```CallbackInfo &info```.<br>
 ```c++
-    return String::New(info.Env(), "Hello");
+    return Napi::String::New(info.Env(), "Hello");
 ```
 The function ***sayhello*** returns a ```Value```.<br>
 This is the topmost class of all node.js C++ datatypes.<br> 
 We create and return a ```String```.<br>
 This elements are explained later in detail.<br>
 ```c++
-Object export_all(Env env, Object exports)
+Napi::Object export_all(Napi::Env env, Napi::Object exports)
 {
-    exports.Set("sayhello", Function::New(env, sayhello));
-	return exports;
+    exports.Set("sayhello", Napi::Function::New(env, sayhello));
+    return exports;
 }
 ```
 The function ***export_all*** is called from macro ```NODE_API_MODULE``` defined in napi.h.<br>

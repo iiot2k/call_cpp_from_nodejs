@@ -37,4 +37,5 @@ Module exports: { sayhello: [Function (anonymous)]}
 Hello
 ```
 
+[🧾Next: Parameters on call of native function ](parameters.md)<br>
 

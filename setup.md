@@ -84,4 +84,10 @@ If you create a new workspace, create a subfolder ***.vscode***<br>
 and copy ***c_cpp_properties.json*** file to that folder.<br>
 All settings are then valid for the new workspace.<br>
 
+You can also set this settings globally with ***File->Preferences->Settings***<br>
+Expand ***Extensions*** and select ***C/C++***.<br>
+Search for ***Include Path*** and ***Defines*** and enter paths and defines.<br>
+I prefer settings per workspace.<br>
+This prevents confusion with different projects.<br> 
+
 [🧾Next: Create Native Code Example sayhello ](create.md)
