@@ -3,6 +3,8 @@
 [![platform](https://img.shields.io/badge/platform-Raspberry--Pi-ff69b4)](https://www.raspberrypi.com/)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZDRCZBQFWV3A6)
 
+This little tutorial will show you how to get started with call C++ from ***Node.js***.<br>
+
 It's possible to call C++ functions from Node.js directly.<br>
 [More Info here📌](https://nodejs.org/api/n-api.html)<br>
 Parts of [Node.js📌](https://github.com/nodejs/node/tree/main/deps) are written in C/C++.<br>
@@ -31,6 +33,7 @@ mylib.myfunction();
 - Debug of native code isn't easy.
 - JavaScript debugger can't handle c++ code.
 - User must install build programs if node-gyp is used in distribution.
+- 
 
 ### Chapters
 [🧾Setup](setup.md)<br>
