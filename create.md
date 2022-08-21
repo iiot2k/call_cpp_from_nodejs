@@ -49,7 +49,7 @@ What this lines of code means ?<br>
 This includes the **napi.h** file on compile.<br>
 The file contains C++ wrapper interface elements to **node.js**.<br>
 To use elements of **napi.h** you must use the namespace ```Napi::```<br>
-For example to create a String ```Napi::String```
+For example to create a String ```Napi::String```<br>
 In second example I show how prevent this.<br> 
 
 ```c++
