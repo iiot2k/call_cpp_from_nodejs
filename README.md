@@ -4,6 +4,7 @@
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZDRCZBQFWV3A6)
 
 This little tutorial will show you how to get started with using C++ programs with ***Node.js***.<br>
+The prerequisite for this introduction is programming knowledge in C++ and JavaScript.<br>
 
 It's possible to call C++ functions from Node.js directly.<br>
 [More Info here📌](https://nodejs.org/api/n-api.html)<br>
