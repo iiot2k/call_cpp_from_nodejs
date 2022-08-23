@@ -13,9 +13,9 @@ This engine compiles your JavaScript program in machine code and runs.<br>
 
 The ***Node.js*** has released a [N-API📌](https://nodejs.org/api/n-api.html) 
 interface for Node.js.<br>
-This interface is written for C as header file.<br>
+This interface is written for C/C++ as wrapper header file.<br>
 It's possible to call C/C++ functions from Node.js directly with N-API.<br>
-You can write C programs with ***N-API***, but isn't easy to use.<br>
+You can write C/C++ programs with ***N-API***, but isn't easy to use.<br>
 Therefore we use the C++ wrapper library ***node-addon-api***.<br>
 ***node-addon-api*** use object oriented logic of C++.<br>
 
