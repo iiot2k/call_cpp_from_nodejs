@@ -3,18 +3,33 @@
 [![platform](https://img.shields.io/badge/platform-Raspberry--Pi-ff69b4)](https://www.raspberrypi.com/)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZDRCZBQFWV3A6)
 
-This little tutorial will show you how to get started with using C++ programs with ***Node.js***.<br>
+This little tutorial will tell you how to get started with using C++ programs with ***Node.js***.<br>
 The prerequisite for this introduction is programming knowledge in C++ and JavaScript.<br>
 
-It's possible to call C++ functions from Node.js directly.<br>
-[More Info here📌](https://nodejs.org/api/n-api.html)<br>
-Parts of [Node.js📌](https://github.com/nodejs/node/tree/main/deps) are written in C/C++.<br>
+Node-Red is based on ***Node.js***.<br>
+Parts of ***Node.js*** is written in C++ [Here more info📌](https://github.com/nodejs/node/tree/main/deps).<br>
+***Node.js*** use the Google V8 JavaScript engine written in C++.<br>
+This engine compiles your JavaScript program in machine code and runs.<br>
 
-The C++ functions are compiled as binary with **Node.js** interface.<br>
-The native modules has the file extension ***.node***.<br>
+The ***Node.js*** has released a [N-API📌](https://nodejs.org/api/n-api.html) 
+interface for Node.js.<br>
+This interface is written for C as header file.<br>
+It's possible to call C/C++ functions from Node.js directly with N-API.<br>
+You can write C programs with ***N-API***, but isn't easy to use.<br>
+Therefore we use the C++ wrapper library ***node-addon-api***.<br>
+***node-addon-api*** use object oriented logic of C++.<br>
+
+Here a picuture that describe the structure.<br>
+
+![Nodejs struct](/images/nodejs_struct.png "Nodejs struct")
+
+The C/C++ functions are compiled as binary with **Node.js** api interface.<br>
+This native modules is a shared object (.so) on linux<br>
+and dynamic link library on Windows (.dll).<br>
+But native modules use the file extension ***.node***.<br>
+The native module is loaded once and unloaded when Node.js exits.
+
 The JavaScript command **require** loads the native module.<br>
-The native module is loaded once and unloaded when Node.js exits.  
-
 This example loads the native module **mynode.node** in folder ./lib and calls the function ***myfunction***.
 
 ```javascript
