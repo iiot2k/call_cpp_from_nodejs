@@ -7,7 +7,7 @@ This little tutorial will tell you how to get started with using C++ programs wi
 The prerequisite for this introduction is programming knowledge in C++ and JavaScript.<br>
 
 Node-Red is based on ***Node.js***.<br>
-Parts of ***Node.js*** is written in C++ [Here more info📌](https://github.com/nodejs/node/tree/main/deps).<br>
+Parts of ***Node.js*** are written in C++ [Here more info📌](https://github.com/nodejs/node/tree/main/deps).<br>
 ***Node.js*** use the Google V8 JavaScript engine written in C++.<br>
 This engine compiles your JavaScript program in machine code and runs.<br>
 
