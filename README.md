@@ -6,37 +6,37 @@
 This little tutorial will tell you how to get started with using C++ programs with ***Node.js***.<br>
 The prerequisite for this introduction is programming knowledge in C++ and JavaScript.<br>
 
-Node-Red is based on ***Node.js***.<br>
-Parts of ***Node.js*** are written in C++ [Here more info📌](https://github.com/nodejs/node/tree/main/deps).<br>
-***Node.js*** use the Google V8 JavaScript engine written in C++.<br>
-This engine compiles your JavaScript program in machine code and runs.<br>
+***Node.js*** programs are written with JavaScript programming language.<br>
+***Node-Red*** is based on ***Node.js***.<br>
+But ***Node.js*** offers a [Node-API📌](https://nodejs.org/api/n-api.html) for calling C/C++ programs directly from JavaScript.<br>
+This is a pure C header file ***node_api.h*** with calls to underlying ***Node.js*** subsystem.<br>
+***Node-API*** interface of follows [ABI📌](https://nodejs.org/en/docs/guides/abi-stability/) definitions.<br>
+Parts of ***Node.js*** are also written in [C++📌](https://github.com/nodejs/node/tree/main/deps).<br>
 
-The ***Node.js*** has released a [N-API📌](https://nodejs.org/api/n-api.html) 
-interface for Node.js.<br>
-This interface is written for C/C++ as wrapper header file.<br>
-It's possible to call C/C++ functions from Node.js directly with N-API.<br>
-You can write C/C++ programs with ***N-API***, but isn't easy to use.<br>
-Therefore we use the C++ wrapper library ***node-addon-api***.<br>
-***node-addon-api*** use object oriented logic of C++.<br>
+But ***Node-API*** isn't easy to use and difficult.<br>
+Therefore we use the C++ wrapper library [node-addon-api📌](https://github.com/nodejs/node-addon-api).<br>
+***node-addon-api*** is a C++ header file ***napi.h*** that use<br>
+the object oriented logic of C++ with using ***Node-API***.<br>
 
-Here a picuture that describe the structure.<br>
+⚠️***node-addon-api*** are only needed to build the native modules.<br> 
 
-![Nodejs struct](/images/nodejs_struct.png "Nodejs struct")
-
-The C/C++ functions are compiled as binary with **Node.js** api interface.<br>
-This native modules is a shared object (.so) on linux<br>
-and dynamic link library on Windows (.dll).<br>
-But native modules use the file extension ***.node***.<br>
-The native module is loaded once and unloaded when Node.js exits.
+To call C++ programs from ***Node.js***, you write a C++ program<br>
+with includes ***napi.h*** and compile it with a C++ compiler to a binary file.<br>
+This binary file (native module) is a shared library on linux ```.so```<br>
+and dynamic link library on Windows ```.dll```.<br>
+But native modules in ***Node.js*** use the file extension ```.node```.<br>
+***Node.js*** recognizes from the file extension ```.node``` that it is a native module.<br>
 
 The JavaScript command **require** loads the native module.<br>
-This example loads the native module **mynode.node** in folder ./lib and calls the function ***myfunction***.
+This example loads the native module **mynode.node** <br>
+in folder ./lib and calls the function ***myfunction*** in native module.
 
 ```javascript
 const mylib = require("./lib/mynode.node");
 
 mylib.myfunction();
 ```
+Sounds complicated, but this introduction shows how to do it.<br>
 
 ### Advantages of native nodes:
 - Very fast execution and load because precompiled optimized machine code.
@@ -45,11 +45,13 @@ mylib.myfunction();
 - No external dependencies.
 
 ### Disadvantages of native nodes:
-- Precompiled native code runs only for the compiled target cpu and os.
+- Compiled native code runs only for the compiled target cpu and os.
 - Debug of native code isn't easy.
 - JavaScript debugger can't handle c++ code.
 - User must install build programs if node-gyp is used in distribution.
 
+Enough theory, now let's move on to the practical part.<br>
+[🧾Next: Setup Build Environment](setup.md)<br>
 
 ### Chapters
 [🧾Setup Build Environment](setup.md)<br>
