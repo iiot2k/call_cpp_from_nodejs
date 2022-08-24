@@ -19,13 +19,13 @@ make -v
 ```
 ⚠️The compile environment are only needed to build the native modules.
 
-We require **Node.js**<br>
+We require **Node.js**.<br>
 The easiest way is to install Node-Red.<br>
 Node.js and npm is then also installed.
 [How look here.📌](https://nodered.org/docs/getting-started/raspberrypi)<br>
 The ***Node-API*** header files are also installed on folder ```/usr/include/node```.
 
-Don't worry, you don't have to memorize the many parameters of C++ and complex makefile syntax now.<br>
+Don't worry, you don't have to learn the many parameters of C++ and complex makefile syntax now.<br>
 
 Smart people writes a python script [node-gyp📌](https://github.com/nodejs/node-gyp) that makes all for you.<br>
 Enter this command to install this tool:<br> 
