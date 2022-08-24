@@ -36,7 +36,7 @@ const mylib = require("./lib/mynode.node");
 
 mylib.myfunction();
 ```
-Sounds complicated, but this introduction shows how to do it.<br>
+Sounds complicated, but this introduction shows how to do it easy.<br>
 
 ### Advantages of native nodes:
 - Very fast execution and load because precompiled optimized machine code.
@@ -51,6 +51,7 @@ Sounds complicated, but this introduction shows how to do it.<br>
 - User must install build programs if node-gyp is used in distribution.
 
 Enough theory, now let's move on to the practical part.<br>
+
 [🧾Next: Setup Build Environment](setup.md)<br>
 
 ### Chapters
