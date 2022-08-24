@@ -4,19 +4,19 @@
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZDRCZBQFWV3A6)
 
 This little tutorial will tell you how to get started with using C++ programs with ***Node.js***.<br>
-The prerequisite for this introduction is programming knowledge in C++ and JavaScript.<br>
+The prerequisite for this is programming knowledge in C++ and JavaScript.<br>
 
 ***Node.js*** programs are written with JavaScript programming language.<br>
 ***Node-Red*** is based on ***Node.js***.<br>
-But ***Node.js*** offers a [Node-API📌](https://nodejs.org/api/n-api.html) for calling C/C++ programs directly from JavaScript.<br>
+***Node.js*** offers a [Node-API📌](https://nodejs.org/api/n-api.html) for calling C/C++ programs from JavaScript.<br>
 This is a pure C header file ***node_api.h*** with calls to underlying ***Node.js*** subsystem.<br>
 ***Node-API*** interface of follows [ABI📌](https://nodejs.org/en/docs/guides/abi-stability/) definitions.<br>
 Parts of ***Node.js*** are also written in [C++📌](https://github.com/nodejs/node/tree/main/deps).<br>
 
 But ***Node-API*** isn't easy to use and difficult.<br>
-Therefore we use the C++ wrapper library [node-addon-api📌](https://github.com/nodejs/node-addon-api).<br>
-***node-addon-api*** is a C++ header file ***napi.h*** that use<br>
-the object oriented logic of C++ with using ***Node-API***.<br>
+Therefore we use [node-addon-api📌](https://github.com/nodejs/node-addon-api).<br>
+***node-addon-api*** is a C++ wrapper that use<br>
+the object oriented logic of C++ with ***Node-API***.<br>
 
 ⚠️***node-addon-api*** are only needed to build the native modules.<br> 
 
@@ -36,7 +36,7 @@ const mylib = require("./lib/mynode.node");
 
 mylib.myfunction();
 ```
-Sounds complicated, but this introduction shows how to do it easy.<br>
+Sounds complicated, but this tutorial shows how to do it easy.<br>
 
 ### Advantages of native nodes:
 - Very fast execution and load because precompiled optimized machine code.
