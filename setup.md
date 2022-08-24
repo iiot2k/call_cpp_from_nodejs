@@ -25,7 +25,8 @@ Node.js and npm is then also installed.
 [How look here.📌](https://nodered.org/docs/getting-started/raspberrypi)<br>
 The ***Node-API*** header files are also installed on folder ```/usr/include/node```.
 
-Don't worry, you don't have to learn the many parameters of C++ and complex makefile syntax now.<br>
+Don't worry, you don't have to learn<br>
+the many parameters of C++ compiler and complex makefile syntax now.<br>
 
 Smart people writes a python script [node-gyp📌](https://github.com/nodejs/node-gyp) that makes all for you.<br>
 Enter this command to install this tool:<br> 
@@ -43,7 +44,7 @@ This command installs it to global folder */usr/lib/node_modules/node-addon-api*
 sudo npm install -g node-addon-api
 ```
 
-We need also an editor.<br> 
+Next we need also an editor.<br> 
 You can use any editor but I recommend Visual Studio Code.
 
 ```
