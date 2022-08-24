@@ -63,7 +63,7 @@ Install Microsoft extension for C/C++.<br>
 Visual Studio Code has a powerful IntelliSense feature.<br>
 Next setup the IntelliSense Configuration.<br>
 The editor runs in background a C++ compiler for syntax check.<br>
-We tell IntelliSense where they include files are stored.<br>
+We tell IntelliSense where the ***Node-API*** and ***node-addon-api*** include files are stored.<br>
 
 In Visual Studio Code select menu ***View->Command Palette...***.<br>
 On list select ***C/C++: Edit Configurations (UI)***.<br>
@@ -98,6 +98,6 @@ Expand ***Extensions*** and select ***C/C++***.<br>
 Search for ***Include Path*** and ***Defines*** and enter paths and defines.<br>
 
 I prefer settings per workspace.<br>
-This prevents confusion with different projects.<br> 
+This prevents confusion with different project types.<br> 
 
 [🧾Next: Create Native Code Example sayhello ](create.md)
