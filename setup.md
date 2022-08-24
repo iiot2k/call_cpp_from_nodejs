@@ -58,8 +58,8 @@ On first start of Visual Studio Code enter settings or skip.<br>
 On Left-Top side of Visual Studio Code you see four rectangle. One flees.<br>
 Here you can install Visual Studio Code extensions.<br>
 Install Microsoft extension for C/C++.<br>
-If you open a file, Visual Studio Code ask you for install the extensions<br>
-depends on file extension.<br> 
+If you open a file, Visual Studio Code ask you for install the recommended<br>
+extensions for this file type.<br> 
 You can install this extensions or when not needed skip it.<br>
 
 ![VSC Extension](/images/vsextension.png "VSC Extension")
