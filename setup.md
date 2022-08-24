@@ -8,7 +8,7 @@ But a fast Raspberry Pi is nice, when you compile large programs.<br>
 
 Its now time to open command line window on Raspberry Pi.<br>
 
-For compile C++ programs we need Python, C++ compiler and make program.<br>
+For build C++ native modules we need Python, C++ compiler and make program.<br>
 This is mostly preinstalled on Raspberry Pi OS.<br>
 Check with this commands:<br>
 
@@ -45,7 +45,8 @@ sudo npm install -g node-addon-api
 ```
 
 Next we need also an editor.<br> 
-You can use any editor but I recommend Visual Studio Code.
+You can use any editor but I recommend Visual Studio Code.<br>
+To install Visual Studio Code enter:<br>
 
 ```
 sudo apt update
@@ -57,6 +58,9 @@ On first start of Visual Studio Code enter settings or skip.<br>
 On Left-Top side of Visual Studio Code you see four rectangle. One flees.<br>
 Here you can install Visual Studio Code extensions.<br>
 Install Microsoft extension for C/C++.<br>
+If you open a file, Visual Studio Code ask you for install the extensions<br>
+depends on file extension.<br> 
+You can install this extensions or when not needed skip it.<br>
 
 ![VSC Extension](/images/vsextension.png "VSC Extension")
 
