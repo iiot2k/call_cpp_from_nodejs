@@ -83,4 +83,4 @@ The documentation of GYP is [here📌](https://gyp.gsrc.io/docs/UserDocumentatio
 Stop, where is the file ***package.json*** ?<br>
 We don't use it now and add ***package.json*** later in examples.<br>
 
-[🧾Next: Call native code sayhello.node from JavaScript ](call.md)
+[🧾Next: Call native module sayhello.node from JavaScript ](call.md)

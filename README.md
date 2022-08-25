@@ -58,5 +58,5 @@ Enough theory, now let's move on to the practical part.<br>
 [🧾Setup Build Environment](setup.md)<br>
 [🧾Create Native Code Example sayhello](create.md)<br>
 [🧾Build Native Code Example sayhello ](build.md)<br>
-[🧾Call native code sayhello.node from JavaScript ](call.md)<br>
+[🧾Call native module sayhello.node from JavaScript ](call.md)<br>
 [🧾Parameters on call of native function ](parameters.md)<br>
