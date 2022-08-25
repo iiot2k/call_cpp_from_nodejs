@@ -1,4 +1,4 @@
-# Call native code sayhello.node from Node.js
+# Call native code sayhello.node from JavaScript
 
 🏠[To Home Page](README.md)
 
