@@ -4,7 +4,7 @@
 
 Open Visual Studio Code (if not already open). <br>
 At first start of Visual Studio Code the folder ***/home/pi/*** is selected.<br>
-For our new native code we create the working folder ***sayhello***.
+For our new native C++ code we create the working folder ***sayhello***.
 
 Select menu ***File->Open Folder ...***<br> 
 Folder dialog opens. On right top click folder icon with plus sign.<br>
@@ -19,7 +19,7 @@ All files are in the Github repository, but for learning I recommend to type it.
 Select menu ***File->New File ...***<br>
 Enter ***sayhello.cpp*** and press **enter** key then ***Create*** button.<br>
 We write a C++ function that returns a string "Hello" on call from node.js.<br>
-Type this program in editor:
+Type this C++ program in editor:
 ```c++
 #include <napi.h>
 
@@ -30,14 +30,14 @@ Napi::Value sayhello(const Napi::CallbackInfo &info)
 }
 
 // function adds symbols to export list
-Napi::Object export_all(Napi::Env env, Napi::Object exports)
+Napi::Object Init(Napi::Env env, Napi::Object exports)
 {
     exports.Set("sayhello", Napi::Function::New(env, sayhello));
     return exports;
 }
 
 // macro exports all symbols
-NODE_API_MODULE(NODE_GYP_MODULE_NAME, export_all);
+NODE_API_MODULE(NODE_GYP_MODULE_NAME, Init);
 ```
 
 Save File with ***File->Save***.
@@ -46,40 +46,39 @@ What this lines of code means ?<br>
 ```c++
 #include <napi.h>
 ```
-This includes the **napi.h** file on compile.<br>
-The file contains C++ wrapper interface elements to **Node.js**.<br>
+This includes the ***node-addon-api*** header file **napi.h** on compile.<br>
+The file contains C++ wrapper interface to **Node-API**.<br>
 To use elements of **napi.h** you must use the namespace name ```Napi::```<br>
 For example to create a String ```Napi::String```<br>
-In second example I show how prevent this.<br> 
 
 ```c++
 Napi::Value sayhello(const Napi::CallbackInfo &info)
 ```
 This function is called from Node.js.<br> 
-Parameters and other data are stored in ```CallbackInfo &info```.<br>
+Node.js stores parameters and other data in ```CallbackInfo &info```.<br>
+The function ```sayhello``` has no parameters, therefore we don't use it.<br>
+I explain parameters later in detail.<br>
 ```c++
     return Napi::String::New(info.Env(), "Hello");
 ```
 The function ***sayhello*** returns a ```Value```.<br>
-This is the topmost class of all node.js C++ datatypes.<br> 
-We create and return a ```String```.<br>
-This elements are explained later in detail.<br>
+```Value``` is the topmost class of all other datatypes.<br> 
+We create and return a ```String``` with string ***"Hello"***.<br>
+```info.Env()``` is the environment variable of **Node.js**.<br> 
+I explain return values later in detail.<br>
 ```c++
-Napi::Object export_all(Napi::Env env, Napi::Object exports)
+Napi::Object Init(Napi::Env env, Napi::Object exports)
 {
     exports.Set("sayhello", Napi::Function::New(env, sayhello));
     return exports;
 }
 ```
-The function ***export_all*** is called from macro ```NODE_API_MODULE``` defined in napi.h.<br>
-A ***exports*** list with symbols are init and returned.<br>
-We export a C++ function ***sayhello*** to Node.js with name "sayhello".<br>  
+This function adds a C++ function ```sayhello``` with name ***"sayhello"*** to exports list.<br>
 ```c++
-NODE_API_MODULE(NODE_GYP_MODULE_NAME, export_all);
+NODE_API_MODULE(NODE_GYP_MODULE_NAME, Init);
 ```
-This macro exports all symbols created in function ***export_all***.<br>
-The symbol NODE_GYP_MODULE_NAME are defined later on compile by node-gyp.<br>
-You can ignore the "not found" error in Editor.<br> 
+This macro calls the function ```Init``` on load of native module.<br>
+The symbol ```NODE_GYP_MODULE_NAME``` are defined on build with ***node-gyp***.<br>
 
 [🧾Next: Build Native Code Example sayhello ](build.md)
 

@@ -4,24 +4,24 @@
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZDRCZBQFWV3A6)
 
 This little tutorial will tell you how to get started with using C++ programs with ***Node.js***.<br>
-The prerequisite for this is programming knowledge in C++ and JavaScript.<br>
+The prerequisite is programming knowledge in C++ and JavaScript.<br>
 
 ***Node.js*** programs are written with JavaScript programming language.<br>
 ***Node-Red*** is based on ***Node.js***.<br>
 ***Node.js*** offers a [Node-API📌](https://nodejs.org/api/n-api.html) for calling C/C++ programs from JavaScript.<br>
 This is a pure C header only files with calls to underlying ***Node.js*** subsystem.<br>
 ***Node-API*** follows [ABI📌](https://nodejs.org/en/docs/guides/abi-stability/) definitions.<br>
-Parts of ***Node.js*** are also written in [C++📌](https://github.com/nodejs/node/tree/main/deps).<br>
+Parts of ***Node.js*** are written in [C++📌](https://github.com/nodejs/node/tree/main/deps).<br>
 
 But ***Node-API*** isn't easy to use and difficult.<br>
 Therefore we use [node-addon-api📌](https://github.com/nodejs/node-addon-api).<br>
-***node-addon-api*** are pure C++ header only files that use<br>
+***node-addon-api*** is a pure C++ wrapper header only files that use<br>
 the object oriented logic of C++ with ***Node-API***.<br>
 
 ⚠️***node-addon-api*** are only needed to build the native modules.<br> 
 
 To call C++ programs from ***Node.js***, you write a C++ program<br>
-and compile it with a C++ compiler to a binary file.<br>
+and build it with a C++ compiler to a binary file.<br>
 This binary file (native module) is a shared library on linux ```.so```<br>
 and dynamic link library on Windows ```.dll```.<br>
 But native modules in ***Node.js*** use the file extension ```.node```.<br>

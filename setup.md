@@ -20,25 +20,21 @@ make -v
 ⚠️The compile environment are only needed to build the native modules.
 
 We require **Node.js**.<br>
-The easiest way is to install Node-Red.<br>
-Node.js and npm is then also installed.
-[How look here.📌](https://nodered.org/docs/getting-started/raspberrypi)<br>
-The ***Node-API*** header files are also installed on folder ```/usr/include/node```.
+The easiest way is to install [Node-Red📌](https://nodered.org/docs/getting-started/raspberrypi).<br>
+This script installs also Node.js, npm and ***Node-API***.<br>
 
 Don't worry, you don't have to learn<br>
 the many parameters of C++ compiler and complex makefile syntax now.<br>
 
 Smart people writes a python script [node-gyp📌](https://github.com/nodejs/node-gyp) that makes all for you.<br>
+Alternatively, if you are familiar with CMake, you can use [CMake.js📌](https://github.com/cmake-js/cmake-js).<br>
 Enter this command to install this tool:<br> 
 
 ```
 sudo npm install -g node-gyp
 ```
 
-Alternatively, if you are familiar with CMake, you can also use [CMake.js📌](https://github.com/cmake-js/cmake-js).
-
-We need also the C++ wrapper library ***node-addon-api***.<br>
-This command installs it to global folder */usr/lib/node_modules/node-addon-api*<br>
+This command installs ***node-addon-api*** to global folder */usr/lib/node_modules/node-addon-api*<br>
 
 ```
 sudo npm install -g node-addon-api
@@ -98,7 +94,7 @@ If you create a new workspace, create a subfolder ***.vscode***<br>
 and copy ***c_cpp_properties.json*** file to that folder.<br>
 All settings are then valid for the new workspace.<br>
 
-You can also set this settings globally with ***File->Preferences->Settings***<br>
+You can set this settings globally with ***File->Preferences->Settings***<br>
 Expand ***Extensions*** and select ***C/C++***.<br>
 Search for ***Include Path*** and ***Defines*** and enter paths and defines.<br>
 
