@@ -2,8 +2,7 @@
 
 🏠[To Home Page](README.md)
 
-We have build the native code ***sayhello.node*** with ***node-gyp**<br>
-and now we call it from JavaScript. <br>
+We build the native module ***sayhello.node*** and now we call it from JavaScript. <br>
 
 Select menu ***File->New File ...***<br>
 Enter ***sayhello.js*** and press **enter** key then ***Create File*** button.<br>
