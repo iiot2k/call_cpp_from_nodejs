@@ -73,7 +73,7 @@ Napi::Object Init(Napi::Env env, Napi::Object exports)
     return exports;
 }
 ```
-This function adds a C++ function ```sayhello``` with name ***"sayhello"*** to exports list.<br>
+This function adds a C++ function ```sayhello``` with Node.js name ***"sayhello"*** to exports list.<br>
 ```c++
 NODE_API_MODULE(NODE_GYP_MODULE_NAME, Init);
 ```
