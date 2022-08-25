@@ -62,7 +62,7 @@ Name of the output file (without extension **.node**).
 "cflags!": [ "-fno-exceptions" ],
 "cflags_cc!": [ "-fno-exceptions" ],
 ```
-C and C++ compile flags for disable and don't generate code for exceptions.<br>
+C and C++ compile flags for disable and don't generate code for C/C++ exceptions.<br>
 ```
 "sources": [ "sayhello.cpp" ],
 ```
@@ -70,7 +70,7 @@ The source files to compile.<br>
 ```
 "include_dirs": [ "/usr/lib/node_modules/node-addon-api" ],
 ```
-The include files path where the compiler looks for include file.  
+The ***node-addon-api*** include files path.  
 ```
 "defines": [ "NAPI_DISABLE_CPP_EXCEPTIONS" ],
 ```
