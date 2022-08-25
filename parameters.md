@@ -2,9 +2,9 @@
 🏠[To Home Page](README.md)
 
 Next example explains parameters on call of native function.<br>
-This example receives parameters from JavaScript, change the array and returns it.<br>
+This example receives parameters from JavaScript, changes the array and returns it.<br>
 The source code is in folder ***parameters***.<br>
-I explain only the differences to example ***sayhello***.<br>
+I explain only the differences to example ***sayhello.cpp***.<br>
 
 ```parameters.cpp```
 ```c++
