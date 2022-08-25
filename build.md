@@ -81,6 +81,6 @@ You can extend the ***binding.gyp*** file for different cpu and os.<br>
 The documentation of GYP is [here📌](https://gyp.gsrc.io/docs/UserDocumentation.md).<br>
 
 Stop, where is the file ***package.json*** ?<br>
-We use ***package.json*** later in examples.<br>
+We don't use it now and add ***package.json*** later in examples.<br>
 
 [🧾Next: Call native code sayhello.node from Node.js ](call.md)
