@@ -70,7 +70,7 @@ The source files to compile.<br>
 ```
 "include_dirs": [ "/usr/lib/node_modules/node-addon-api" ],
 ```
-The ***node-addon-api*** include files path.  
+The ***node-addon-api*** include path.  
 ```
 "defines": [ "NAPI_DISABLE_CPP_EXCEPTIONS" ],
 ```
