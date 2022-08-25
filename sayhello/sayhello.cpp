@@ -7,13 +7,13 @@ Napi::Value sayhello(const Napi::CallbackInfo &info)
 }
 
 // function adds symbols to export list
-Napi::Object export_all(Napi::Env env, Napi::Object exports)
+Napi::Object Init(Napi::Env env, Napi::Object exports)
 {
     exports.Set("sayhello", Napi::Function::New(env, sayhello));
     return exports;
 }
 
 // macro exports all symbols
-NODE_API_MODULE(NODE_GYP_MODULE_NAME, export_all);
+NODE_API_MODULE(NODE_GYP_MODULE_NAME, Init);
 
 
