@@ -1,5 +1,5 @@
 # Example sayhello 
-This example calls returns a string "Hello" on call from ***JavaScript***.<br>
+This example returns a string "Hello" on call from ***JavaScript***.<br>
 
 ### Setup:
 ```

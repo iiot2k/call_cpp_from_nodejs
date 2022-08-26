@@ -1,5 +1,5 @@
 # Example parameters
-This example receives parameters from ***JavaScript***, changes the array and returns it.<br>
+This example receives parameters from ***JavaScript***, changes the received array and returns it.<br>
 
 ### Build:
 
