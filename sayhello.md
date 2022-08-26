@@ -62,9 +62,9 @@ I explain parameters later in detail.<br>
     return Napi::String::New(info.Env(), "Hello");
 ```
 The function ***sayhello*** returns a ```Value```.<br>
-```Value``` is the topmost class of all other datatypes.<br> 
+```Value``` is the topmost class of JavaSript datatypes.<br> 
 We create and return a Node.js ```String``` with string constant ***"Hello"***.<br>
-```info.Env()``` is the environment variable of **Node.js**.<br> 
+```info.Env()``` is the environment context variable of **Node.js**.<br> 
 I explain return values later in detail.<br>
 ```c++
 Napi::Object Init(Napi::Env env, Napi::Object exports)
