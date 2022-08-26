@@ -8,16 +8,15 @@ This little tutorial will tell you how to get started with using C++ programs wi
 The prerequisite is programming knowledge in C++ and JavaScript.<br>
 
 ***Node.js*** programs are written with JavaScript programming language.<br>
-***Node-Red*** is based on ***Node.js***.<br>
-***Node.js*** offers a [Node-API📌](https://nodejs.org/api/n-api.html) for calling C/C++ programs from JavaScript.<br>
-This is a pure C header only files with calls to underlying ***Node.js*** subsystem.<br>
-***Node-API*** follows [ABI📌](https://nodejs.org/en/docs/guides/abi-stability/) definitions.<br>
 Parts of ***Node.js*** are written in [C++📌](https://github.com/nodejs/node/tree/main/deps).<br>
+***Node.js*** offers a [Node-API📌](https://nodejs.org/api/n-api.html) for calling C/C++ programs from JavaScript.<br>
+This ***Node-API*** is a pure C header only files with calls to underlying ***Node.js*** subsystem.<br>
+***Node-API*** follows [ABI📌](https://nodejs.org/en/docs/guides/abi-stability/) definitions.<br>
 
 But ***Node-API*** isn't easy to use and difficult.<br>
 Therefore we use [node-addon-api📌](https://github.com/nodejs/node-addon-api).<br>
-***node-addon-api*** is a pure C++ wrapper header only files that use<br>
-the object oriented logic of C++ with ***Node-API***.<br>
+***node-addon-api*** is the C++ header only files wrapper of ***Node-API***<br>
+that use the object oriented logic of C++.<br>
 
 ⚠️***node-addon-api*** are only needed to build the native modules.<br> 
 
@@ -28,8 +27,8 @@ and dynamic link library on Windows ```.dll```.<br>
 But native modules in ***Node.js*** use the file extension ```.node```.<br>
 ***Node.js*** recognizes from the file extension ```.node``` that it is a native module.<br>
 
-The JavaScript command **require** loads the native module.<br>
-This example loads the native module **mynode.node** <br>
+The JavaScript command ```require``` loads the native module.<br>
+This example loads the native module ***mynode.node*** <br>
 in folder ./lib and calls the function ***myfunction*** in native module.
 
 ```javascript
