@@ -61,3 +61,5 @@ Enough theory, now let's move on to the practical part.<br>
 [🧾Build Native Code Example sayhello ](build_sayhello.md)<br>
 [🧾Call native module sayhello.node from JavaScript ](call_sayhello.md)<br>
 [🧾Create Native Code Example parameters ](parameters.md)<br>
+[🧾Build Native Code Example parameters ](build_parameters.md)
+[🧾Call native module parameters.node from JavaScript ](call_parameters.md)
