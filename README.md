@@ -1,4 +1,5 @@
 # Call C++ from Node.js (Node-Red)
+[![platform](https://img.shields.io/badge/platform-Node.js-green)](https://nodejs.org/en/)
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
 [![platform](https://img.shields.io/badge/platform-Raspberry--Pi-ff69b4)](https://www.raspberrypi.com/)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZDRCZBQFWV3A6)
@@ -56,7 +57,7 @@ Enough theory, now let's move on to the practical part.<br>
 
 ### Chapters
 [🧾Setup Build Environment](setup.md)<br>
-[🧾Create Native Code Example sayhello](create.md)<br>
-[🧾Build Native Code Example sayhello ](build.md)<br>
-[🧾Call native module sayhello.node from JavaScript ](call.md)<br>
-[🧾Parameters on call of native function ](parameters.md)<br>
+[🧾Create Native Code Example sayhello](sayhello.md)<br>
+[🧾Build Native Code Example sayhello ](build_sayhello.md)<br>
+[🧾Call native module sayhello.node from JavaScript ](call_sayhello.md)<br>
+[🧾Create Native Code Example parameters ](parameters.md)<br>
