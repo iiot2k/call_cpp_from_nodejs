@@ -8,8 +8,7 @@ We build the sayhello.cpp C++ code with script ***node-gyp***.<br>
 Select menu ***File->New File ...***<br>
 Enter ***binding.gyp*** and press **enter** key then ***Create File*** button.<br>
 
-Type this JSON definition in editor:
-
+```binding.gyp```
 ```JSON
 {
     "targets": [

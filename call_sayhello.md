@@ -7,8 +7,7 @@ We build the native module ***sayhello.node*** and now we call it from JavaScrip
 Select menu ***File->New File ...***<br>
 Enter ***sayhello.js*** and press **enter** key then ***Create File*** button.<br>
 
-Enter this JavaScript program:<br>
-
+```sayhello.js```
 ```javascript
 "use strict";
 

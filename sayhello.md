@@ -19,7 +19,7 @@ The source code is in folder ***sayhello***, but for learning I recommend to typ
 Select menu ***File->New File ...***<br>
 Enter ***sayhello.cpp*** and press **enter** key then ***Create*** button.<br>
 We write a C++ function that returns a string "Hello" on call from node.js.<br>
-Type this C++ program in editor:
+```sayhello.cpp```
 ```c++
 #include <napi.h>
 
