@@ -73,13 +73,12 @@ We use ***node-gyp***, also we need a ***binding.gyp*** file.<br>
     ]
 }
 ```
-```JSON
-"include_dirs": [ "<!@(node -p \"require('node-addon-api').include\")" ],
-```
 In sayhello example we used absolute path for ***node-addon-api***.<br>
 ***npm*** installs ***node-addon-api*** and ***bindings*** on subfolder ```node_modules```.<br>
 This cryptic line calls Node.js for resolve the path of ***node-addon-api***.<br>
-
+```JSON
+"include_dirs": [ "<!@(node -p \"require('node-addon-api').include\")" ],
+```
 We can build now the ***parameters*** example automatically with ***npm***:<br>
 ```
 npm install
