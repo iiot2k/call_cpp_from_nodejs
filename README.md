@@ -10,12 +10,12 @@ The prerequisite is programming knowledge in C++ and JavaScript.<br>
 ***Node.js*** programs are written with JavaScript programming language.<br>
 Parts of ***Node.js*** are written in [C++📌](https://github.com/nodejs/node/tree/main/deps).<br>
 ***Node.js*** offers a [Node-API📌](https://nodejs.org/api/n-api.html) for calling C/C++ programs from JavaScript.<br>
-This ***Node-API*** is a pure C header only files with calls to underlying ***Node.js*** subsystem.<br>
+This ***Node-API*** is a C header-only files with calls to underlying ***Node.js*** subsystem.<br>
 ***Node-API*** follows [ABI📌](https://nodejs.org/en/docs/guides/abi-stability/) definitions.<br>
 
 But ***Node-API*** isn't easy to use and difficult.<br>
 Therefore we use [node-addon-api📌](https://github.com/nodejs/node-addon-api).<br>
-***node-addon-api*** is the C++ header only files wrapper of ***Node-API***<br>
+***node-addon-api*** is the C++ header-only files wrapper of ***Node-API***<br>
 that use the object oriented logic of C++.<br>
 
 ⚠️***node-addon-api*** are only needed to build the native modules.<br> 
