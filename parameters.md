@@ -4,7 +4,7 @@
 
 With this example we learn more about parameters of native function.<br>
 This example receives parameters from JavaScript, changes the array and returns it.<br>
-The source code is in folder ***parameters***.<br>
+The source code is in folder ***examples/parameters***.<br>
 I explain only the differences to example ***sayhello.cpp***.<br>
 
 ```parameters.cpp```

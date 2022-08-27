@@ -1,0 +1,12 @@
+{
+    "name": "parameters",
+    "version": "1.0.0",
+    "description": "Node.js Addons Parameters Example",
+    "main": "parameters.js",
+    "private": true,
+    "dependencies": {
+        "node-addon-api": "*",
+        "bindings": "*" 
+    },
+    "gypfile": true
+}
