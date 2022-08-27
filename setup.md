@@ -21,7 +21,9 @@ make -v
 
 We require **Node.js**.<br>
 The easiest way is to install [Node-Red📌](https://nodered.org/docs/getting-started/raspberrypi).<br>
-This script installs also ***Node.js***, ***npm*** and ***Node-API***.<br>
+This script installs also ***Node.js*** and ***npm***.<br>
+The ***Node-API*** header files are installed by ***node-gyp***<br>
+depends on installed ***Node.js*** version. 
 
 Don't worry, you don't have to learn<br>
 the many parameters of C++ compiler and complex makefile syntax now.<br>
