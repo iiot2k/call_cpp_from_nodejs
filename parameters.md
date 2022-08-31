@@ -59,9 +59,9 @@ What means the code lines ?
 using namespace Napi;
 ```
 In ***sayhello*** example we use ```Napi::``` as namespace prefix.<br>
-With this command we tell them compiler look in namespace ```Napi```<br>
-for symbols and if found add the namespace prefix to the symbol.<br>
-E.g. ```String``` is expanded to ```Napi::String```.
+With this command we tell them compiler all symbols<br> 
+in namespace ```Napi``` are now in global namespace.<br>
+E.g. you can also write ```String``` for ```Napi::String```.
 ```c++
 Env env = info.Env();
 ```
