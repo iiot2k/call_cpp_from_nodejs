@@ -14,15 +14,17 @@ exceptions and environment context.<br>
 
 ## ```Env```<br>
 *Env* is the environment context of caller JavaScript.<br>
-```c++
-// methods
-Value Undefined()                   // returns an undefined Value
-Value Null()                        // returns a null Value
-bool IsExceptionPending()           // returns true if pending exception made
-Error GetAndClearPendingException() // returns Error object and clear pending exception 
-Value RunScript(const char* script) // executes JavaScript code and returns Value
 
-// examples
+|**Method**|**Description**|
+|:---|:---|
+|```Value Null()```|returns an null Value|
+|```Value Undefined()```|returns an undefined Value|
+|```bool IsExceptionPending()```|returns true if pending exception made|
+|``Error GetAndClearPendingException()``|returns Error object and clear pending exception|
+|``Value RunScript(const char* script)``|executes JavaScript code and returns Value|
+
+#### examples
+```c++
 Value val1 = env.Null();             // creates null Value
 Value val1 = env.RunScript("3 * 5"); // executes JavaScript code
 return env.Undefined();              // returns undefined Value
