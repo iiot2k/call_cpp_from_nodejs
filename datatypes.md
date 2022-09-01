@@ -33,13 +33,14 @@ return env.Undefined();              // returns undefined Value
 ***CallbackInfo*** contain all parameters and environment context<br>
 stored on call from JavaScript.
 <br>
-```c++
-// methods
-Env Env()        // gets the environment context
-size_t Length()  // gets the count of parameters as unsigned integer
-Value [size_t]   // gets the parameter with unsigned integer as index
+|**Method**|**Description**|
+|:---|:---|
+|``Env Env()``|gets the environment context|
+|``size_t Length()``|gets the count of parameters as unsigned integer|
+|``Value [size_t]``|gets the parameter with unsigned integer as index|
 
-// examples 
+#### examples 
+```c++
 Env env = info.Env();   // get environment context from CallbackInfo
 if (info.Length() != 3) // checks the count of parameters
     ...
@@ -50,19 +51,22 @@ Value v1 = info[0];     // gets the first parameter as Value
 **Value** is the base class of all JavaScript datatypes.<br>
 Derived classes also inherit the properties and methods of *Value*.<br>
 **Value** can contain any JavaScript datatypes ***Null***, ***Undefined***, ***Boolean***, ***Number***..<br>
+#### create 
+|**Method**|**Description**|
+|:---|:---|
+|```Value Value::From(Env, <ValueType>)```|creates from type|
+
+Where ```<ValueType>```<br>
 ```c++
-// create
-Value Value::From(Env, <ValueType>) // creates from type
+bool, <IntType>, float, double, const char*, const char16_t*, std::string, std::u16string, Value 
+```
+Where ```<IntType>```<br>
+```c++
+uint8_t, int8_t, uint16_t, int16_t, uint32_t, int32_t, uint64_t, int64_t, size_t
+```
+#### examples for create
 
-// Where
-<ValueType> 
-    bool, <IntType>, float, double 
-    const char*, const char16_t*, std::string, std::u16string, Value 
-
-<IntType>
-    uint8_t, int8_t, uint16_t, int16_t, uint32_t, int32_t, uint64_t, int64_t, size_t
-
-// examples for create
+```c++
 Value val0;                                   // creates empty
 Value txt1 = Value::From(env, "string");      // creates from string UTF-8
 Value txt2 = Value::From(env, u"caractères"); // creates from string UTF-16
