@@ -56,11 +56,11 @@ Derived classes also inherit the properties and methods of *Value*.<br>
 |:---|:---|
 |```Value Value::From(Env, <ValueType>)```|creates from type|
 
-Where ```<ValueType>```<br>
+Where ```<ValueType>``` is:<br>
 ```c++
 bool, <IntType>, float, double, const char*, const char16_t*, std::string, std::u16string, Value 
 ```
-Where ```<IntType>```<br>
+Where ```<IntType>``` is:<br>
 ```c++
 uint8_t, int8_t, uint16_t, int16_t, uint32_t, int32_t, uint64_t, int64_t, size_t
 ```
@@ -74,36 +74,39 @@ Value pi = Value::From(env, 3.14);            // creates from double
 Value count = Value::From(env, uint32_t(8));  // creates from uint32_t
 return Value::From(env, true);                // returns with bool
 return Value::From(env, "ok");                // returns with const char* UTF-8
+```
+|**Method**|**Description**|
+|:---|:---|
+|```bool ==```|operator for compares for strict equals|
+|```bool !=```|operator for compares for not strict equals|
+|```bool StrictEquals(Value)```|compares for strict equals|
 
-// compare
-bool (Value1 == Value2)   // compares for strict equals
-bool (Value1 != Value2)   // compares for not strict equals
-bool StrictEquals(Value2) // compares for strict equals
-
-// examples for compare
+#### examples for compare
+```c++
 if (txt1 != txt2) // compares for not strict equals (here true)
     ...
 
 if (pi.StrictEquals(txt2)) // compares for strict equals (here false)
     ...
+```
+#### check datatype
+|**Method**|**Description**|
+|:---|:---|
+|```bool IsEmpty()```|checks for Empty (uninitialized)|
+|```bool IsUndefined()```|checks for Undefined|
+|```bool IsNull()```|checks for Null|
+|```bool IsBoolean()```|checks for Boolean|
+|```bool IsNumber()```|checks for Number|
+|```bool IsString()```|checks for String|
+|```bool IsObject()```|checks for Object|
+|```bool IsArray()```|checks for Array|
+|```bool IsBuffer() ```|checks for Buffer|
+|```bool IsArrayBuffer()```|checks for ArrayBuffer|
+|```bool IsFunction()```|checks for Function|
+|```napi_valuetype Type()```|returns the datatype as [napi_valuetype](https://nodejs.org/api/n-api.html#napi_valuetype)|
 
-// check datatype
-bool IsEmpty()       // checks for Empty (uninitialized)
-bool IsUndefined()   // checks for Undefined  
-bool IsNull()        // checks for Null
-bool IsBoolean()     // checks for Boolean
-bool IsNumber()      // checks for Number
-bool IsString()      // checks for String
-bool IsObject()      // checks for Object
-bool IsArray()       // checks for Array
-bool IsBuffer()      // checks for Buffer
-bool IsArrayBuffer() // checks for ArrayBuffer
-bool IsFunction()    // checks for Function
-
-napi_valuetype Type() // returns the datatype as napi_valuetype
-// for napi_valuetype look here https://nodejs.org/api/n-api.html#napi_valuetype
-
-// example for check datatype
+#### example for check datatype
+```c++
 if (!info[0].IsBoolean() || !info[1].IsNumber()) // check parameters datatype
     ...
 
@@ -112,8 +115,8 @@ switch(info[1].Type()) // execute code depends of datatype of parameter
     case napi_valuetype::napi_boolean: // Boolean
         ...
 }
-
-// coerces to derived class 
+```
+#### coerces to derived class 
 Boolean ToBoolean()  // coerces to Boolean
 Number ToNumber()    // coerces to Number
 String ToString()    // coerces to String
