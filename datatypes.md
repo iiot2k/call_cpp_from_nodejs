@@ -157,13 +157,13 @@ return Boolean::New(env, false);         // returns with bool
 return bval1;                            // returns Boolean
 ```
 
-#### get value
+#### get C++ value
 |**Returns**|**Method**|**Description**|
 |:---|:---|:---|
 |``bool``|``Value()``|get bool value|
 |``bool``|bool()|(cast operator) get bool value|
 
-#### example for get value
+#### example for get C++ value
 ```c++
 bool b1 = info[0].As<Boolean>().Value(); // get parameter as bool
 bool b2 = info[1].ToBoolean().Value();   // get parameter as bool
@@ -187,7 +187,7 @@ Number Val3 = info[2].ToNumber();     // creates from parameter
 return Number::New(env, 0.15);        // returns with double constant
 return val1;                          // returns Number
 ```
-#### get value
+#### get C++ value
 |**Returns**|**Method**|**Description**|
 |:---|:---|:---|
 |``int32_t``|``Int32Value()``|get int32_t value|
@@ -201,7 +201,7 @@ return val1;                          // returns Number
 |``float``|``float()``|(cast operator) get float value|
 |``double``|``double()``|(cast operator) get double value|
 
-#### example get value
+#### example get C++ value
 ```c++
 uint32_t n1 = info[0].As<Number>().Uint32Value(); // get parameter as uint32_t
 double n2 = info[1].ToNumber().DoubleValue();     // get parameter as double 
@@ -219,8 +219,8 @@ and [std::u16string](https://cplusplus.com/reference/string/u16string/) (UTF-16)
 |:---|:---|:---|
 |``String``|``String::New(Env, const char*)``|(static) creates from const char* (UTF-8)|
 |``String``|``String::New(Env, const char16_t*)``|(static) creates from const char16_t* (UTF-16)|
-|``String``|``String::New(Env, )``|(static) creates from std::string|
-|``String``|``String::New(Env, )``|(static) creates from std::u16string|
+|``String``|``String::New(Env, std::string &)``|(static) creates from std::string|
+|``String``|``String::New(Env, std::u16string &)``|(static) creates from std::u16string|
 
 #### example create
 ```c++
@@ -232,7 +232,7 @@ String str4 = info[2].ToString();              // creates from parameter
 return String::New(env, "Error");              // returns with const char* (UTF-8)
 return str2;                                   // returns String
 ```
-#### get value
+#### get C++ value
 |**Returns**|**Method**|**Description**|
 |:---|:---|:---|
 |``std::string``|``Utf8Value()``|get as std::string (UTF-8)|
@@ -240,7 +240,7 @@ return str2;                                   // returns String
 |``std::string``|``std::string()``|(cast operator) get as std::string (UTF-8)|
 |``std::u16string``|``std::u16string()``|(cast operator) get as std::u16string (UTF-16)|
 
-#### examples get value
+#### examples get C++ value
 ```c++
 std::string std_str1 = info[1].As<String>().Utf8Value();   // get parameter as std::string
 std::u16string std_str2 = info[2].ToString().Utf16Value(); // get parameter as std::u16string
@@ -249,18 +249,21 @@ std::u16string std_str4 = info[4].ToString();              // get parameter as s
 std::string std_str3 = str1.Utf8Value();                   // get std::string
 std::u16string std_str4 = str2;                            // get std::u16string with cast
 ```
-#### get string pointer from std::string and std::u16string methods
+#### get C++ value from std::string and std::u16string methods
 |**Returns**|**Method**|**Description**|
 |:---|:---|:---|
 |``const char*``|``Utf8Value().c_str()``|get const char* (UTF-8)|
 |``const char16_t*``|``Utf16Value().c_str()``|get const char16_t* (UTF-16)|
+|``size_t``|``Utf8Value().length()``|get string length as unsigned integer (UTF-8)|
+|``size_t``|``Utf16Value().length()``|get string length as unsigned integer (UTF-16)|
 
-#### examples get string from std::string and std::u16string methods
+#### examples get C++ value from std::string and std::u16string methods
 ```c++
 const char* pstr1 = info[1].ToString().Utf8Value().c_str();      // get parameter as string pointer (UTF-8)
 const char16_t* pstr2 = info[2].ToString().Utf16Value().c_str(); // get parameter as string pointer (UTF-16)
 const char* pstr3 = str1.Utf8Value().c_str();                    // get const char* (UTF-8)
 const char16_t* pstr4 = str2.Utf16Value().c_str();               // get const char16_t* (UTF-16) 
+uint32_t len = (uint32_t) str1.Utf8Value().length();             // get string length
 ```
 ## ```Object```<br>
 Class ***Object*** is derived from Value.<br>
