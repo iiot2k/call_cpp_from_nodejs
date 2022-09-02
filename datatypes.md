@@ -13,16 +13,16 @@ The ***Env*** and ***CallbackInfo*** are helper classes for handle calls,<br>
 exceptions and environment context.<br> 
 
 ## ```Env```<br>
-***Env*** is the environment context of caller JavaScript.<br>
+Class ***Env*** is the environment context of caller JavaScript.<br>
 
 |**Returns**|**Method**|**Description**|
 |:---|:---|:---|
 |``Value``|``Null()``|returns an null Value|
 |``Value``|``Undefined()``|returns an undefined Value|
 |``Object``|``Global()``|returns JavaScript global scope as Object|
-|``bool``|``IsExceptionPending()``|check for pending exception made|
+|``bool``|``IsExceptionPending()``|check for pending exception|
 |``Error``|``GetAndClearPendingException()``|clears pending exception and returns Error|
-|``Value``|``RunScript(const char* script)``|executes JavaScript code|
+|``Value``|``RunScript(const char*)``|executes JavaScript code|
 |``Value``|``RunScript(const std::string&)``|executes JavaScript code|
 
 #### examples
@@ -32,7 +32,7 @@ Value val1 = env.RunScript("3 * 5"); // executes JavaScript code
 return env.Undefined();              // returns undefined Value
 ```
 ## ```CallbackInfo```<br>
-***CallbackInfo*** contain all parameters and environment context<br>
+Class ***CallbackInfo*** contain all parameters and environment context<br>
 stored on call from JavaScript.
 <br>
 |**Returns**|**Method**|**Description**|
@@ -50,7 +50,7 @@ Value v1 = info[0];     // gets the first parameter as Value
 ```
 
 ## ``Value``<br>
-**Value** is the base class of all JavaScript datatypes.<br>
+Class **Value** is the base class of all JavaScript datatypes.<br>
 Derived classes also inherit the properties and methods of **Value**.<br>
 **Value** can contain any JavaScript datatypes ***Null***, ***Undefined***, ***Boolean***, ***Number***..<br>
 #### create 
@@ -142,23 +142,29 @@ Number cnt = info[1].As<Number>();  // cast parameter to Number
 String str1 = txt1.ToString();      // cast to String 
 ```
 ## ``Boolean``<br>
-***Boolean*** is derived from Value.<br>
-```c++
-// create
-Boolean Boolean::New(Env, bool) // creates initialized with bool
+Class ***Boolean*** is derived from class ***Value***.<br>
+#### create
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``Boolean``|``Boolean::New(Env, bool)``|(static) creates from bool|
 
-// example for create
+#### example for create
+```c++
 Boolean bval0;                           // creates empty
-Boolean bval1 = Boolean::New(env, true); // creates with bool
+Boolean bval1 = Boolean::New(env, true); // creates from bool
 Boolean bval2 = info[1].As<Boolean>();   // creates from parameter
 return Boolean::New(env, false);         // returns with bool
 return bval1;                            // returns Boolean
+```
 
-// get value
-bool Value() // get bool
-(bool)       // cast to get bool
+#### get value
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``bool``|``Value()``|get bool value|
+|``bool``|bool()|(cast operator) get bool value|
 
-// example for get value
+#### example for get value
+```c++
 bool b1 = info[0].As<Boolean>().Value(); // get parameter as bool
 bool b2 = info[1].ToBoolean().Value();   // get parameter as bool
 bool b3 = info[2].ToBoolean();           // get parameter as bool with cast
@@ -166,33 +172,37 @@ bool b4 = bval1.Value();                 // get as bool
 bool b4 = bval1;                         // get as bool with cast
 ```
 ## ```Number```<br>
-***Number*** is derived from Value.<br>
-```c++
-// create
-Number Number::New(Env, double)  // create with double
+Class ***Number*** is derived from class ***Value***.<br>
+#### create
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``Number``|``Number::New(Env, double)``|(static) creates from double|
 
-// example create
+#### example create
+```c++
 Number val0;                          // creates empty
 Number val1 = Number::New(env, 3.14); // creates with double constant
 Number val2 = info[1].As<Number>();   // creates from parameter
 Number Val3 = info[2].ToNumber();     // creates from parameter
 return Number::New(env, 0.15);        // returns with double constant
 return val1;                          // returns Number
+```
+#### get value
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``int32_t``|``Int32Value()``|get int32_t value|
+|``uint32_t``|``Uint32Value()``|get uint32_t value|
+|``int64_t``|``Int64Value()``|get int64_t value|
+|``float``|``FloatValue()``|get float value|
+|``double``|``DoubleValue()``|get double value|
+|``int32_t``|``int32_t()``|(cast operator) get int32_t value|
+|``uint32_t``|``uint32_t()``|(cast operator) get uint32_t value|
+|``int64_t``|``int64_t()``|(cast operator) get int64_t value|
+|``float``|``float()``|(cast operator) get float value|
+|``double``|``double()``|(cast operator) get double value|
 
-// get value
-int32_t Int32Value()   // get as int32_t
-uint32_t Uint32Value() // get as uint32_t
-int64_t Int64Value()   // get as int64_t
-float FloatValue()     // get as float
-double DoubleValue()   // get as double
-
-(int32_t)  // cast to get as int32_t
-(uint32_t) // cast to get as uint32_t
-(int64_t)  // cast to get as int64_t
-(float)    // cast to get as float
-(double)   // cast to get as double
-
-// example get value
+#### example get value
+```c++
 uint32_t n1 = info[0].As<Number>().Uint32Value(); // get parameter as uint32_t
 double n2 = info[1].ToNumber().DoubleValue();     // get parameter as double 
 double n3 = info[2].ToNumber();                   // get parameter as double with cast
@@ -201,54 +211,61 @@ int32_t n5 = val1.Int32Value();                   // get as int32_t
 double n6 = val1;                                 // get as double with cast
 ```
 ## ```String```<br>
-***String*** is derived from Value::Name.<br>
+Class ***String*** is derived from ***Value::Name***.<br>
 **String** can handle [std::string](https://cplusplus.com/reference/string/string/) (UTF-8)
 and [std::u16string](https://cplusplus.com/reference/string/u16string/) (UTF-16).<br>
-```c++
-// create
-String String::New(Env, const char*)           // creates with const char* (UTF-8)
-String String::New(Env, const char16_t*)       // creates with const char16_t* (UTF-16)
-String String::New(Env, const std::string&)    // creates with std::string (UTF-8)
-String String::New(Env, const std::u16string&) // creates with std::u16string (UTF-16)
+#### create
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``String``|``String::New(Env, const char*)``|(static) creates from const char* (UTF-8)|
+|``String``|``String::New(Env, const char16_t*)``|(static) creates from const char16_t* (UTF-16)|
+|``String``|``String::New(Env, )``|(static) creates from std::string|
+|``String``|``String::New(Env, )``|(static) creates from std::u16string|
 
-// example create
+#### example create
+```c++
 String str0;                                   // creates empty 
-String str1 = String::New(env, "string");      // creates with const char* (UTF-8)
-String str2 = String::New(env, u"caractères"); // creates with const char16_t* (UTF-16)
+String str1 = String::New(env, "string");      // creates from const char* (UTF-8)
+String str2 = String::New(env, u"caractères"); // creates from const char16_t* (UTF-16)
 String str3 = info[1].As<String>();            // creates from parameter 
 String str4 = info[2].ToString();              // creates from parameter
 return String::New(env, "Error");              // returns with const char* (UTF-8)
 return str2;                                   // returns String
+```
+#### get value
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``std::string``|``Utf8Value()``|get as std::string (UTF-8)|
+|``std::u16string``|``Utf16Value()``|get as std::u16string (UTF-16)|
+|``std::string``|``std::string()``|(cast operator) get as std::string (UTF-8)|
+|``std::u16string``|``std::u16string()``|(cast operator) get as std::u16string (UTF-16)|
 
-// get value
-std::string Utf8Value()      // get as std::string (UTF-8)
-std::u16string Utf16Value()  // get as std::u16string (UTF-16)
-
-(std::string())              // cast to get as std::string (UTF-8)
-(std::u16string())           // cast to get as std::u16string (UTF-16)
-
-// examples get value
+#### examples get value
+```c++
 std::string std_str1 = info[1].As<String>().Utf8Value();   // get parameter as std::string
 std::u16string std_str2 = info[2].ToString().Utf16Value(); // get parameter as std::u16string
 std::string std_str3 = info[3].As<String>();               // get parameter as std::string with cast
 std::u16string std_str4 = info[4].ToString();              // get parameter as std::u16string with cast
 std::string std_str3 = str1.Utf8Value();                   // get std::string
 std::u16string std_str4 = str2;                            // get std::u16string with cast
+```
+#### get string pointer from std::string and std::u16string methods
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``const char*``|``Utf8Value().c_str()``|get const char* (UTF-8)|
+|``const char16_t*``|``Utf16Value().c_str()``|get const char16_t* (UTF-16)|
 
-// get string pointer from std::string and std::u16string methods
-const char* Utf8Value().c_str()      // get const char* (UTF-8)
-const char16_t* Utf16Value().c_str() // get const char16_t* (UTF-16)
-
-// examples get string from std::string and std::u16string methods
+#### examples get string from std::string and std::u16string methods
+```c++
 const char* pstr1 = info[1].ToString().Utf8Value().c_str();      // get parameter as string pointer (UTF-8)
 const char16_t* pstr2 = info[2].ToString().Utf16Value().c_str(); // get parameter as string pointer (UTF-16)
 const char* pstr3 = str1.Utf8Value().c_str();                    // get const char* (UTF-8)
 const char16_t* pstr4 = str2.Utf16Value().c_str();               // get const char16_t* (UTF-16) 
 ```
 ## ```Object```<br>
-***Object*** is derived from Value.<br>
-**Object** is the base class of JavaScript datatypes **Array, ArrayBuffer and Function**.<br> 
-The derived class also inherit the properties and methods of *Object*.<br>
+Class ***Object*** is derived from Value.<br>
+**Object** is the base class of classes  **Array, ArrayBuffer and Function**.<br> 
+The derived class also inherit the properties and methods of ***Object***.<br>
 ```c++
 // create
 Object Object::New(Env); // creates with no properties
