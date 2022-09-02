@@ -5,23 +5,25 @@ I list here the most important ***node-addon-api*** classes and methods.<br>
 For complete detail, look in [node-addon-api📌](https://github.com/nodejs/node-addon-api) documentation.<br>
 
 Assumption for examples:<br>
-- With ```using namespace Napi;```
-- Using ```CallbackInfo &info```
-- Using ```Env env = info.Env();```
+- With ``using namespace Napi;``
+- Using ``CallbackInfo &info``
+- Using ``Env env = info.Env();``
 
 The ***Env*** and ***CallbackInfo*** are helper classes for handle calls,<br>
 exceptions and environment context.<br> 
 
 ## ```Env```<br>
-*Env* is the environment context of caller JavaScript.<br>
+***Env*** is the environment context of caller JavaScript.<br>
 
-|**Method**|**Description**|
-|:---|:---|
-|```Value Null()```|returns an null Value|
-|```Value Undefined()```|returns an undefined Value|
-|```bool IsExceptionPending()```|returns true if pending exception made|
-|``Error GetAndClearPendingException()``|returns Error object and clear pending exception|
-|``Value RunScript(const char* script)``|executes JavaScript code and returns Value|
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``Value``|``Null()``|returns an null Value|
+|``Value``|``Undefined()``|returns an undefined Value|
+|``Object``|``Global()``|returns JavaScript global scope as Object|
+|``bool``|``IsExceptionPending()``|check for pending exception made|
+|``Error``|``GetAndClearPendingException()``|clears pending exception and returns Error|
+|``Value``|``RunScript(const char* script)``|executes JavaScript code|
+|``Value``|``RunScript(const std::string&)``|executes JavaScript code|
 
 #### examples
 ```c++
@@ -33,11 +35,11 @@ return env.Undefined();              // returns undefined Value
 ***CallbackInfo*** contain all parameters and environment context<br>
 stored on call from JavaScript.
 <br>
-|**Method**|**Description**|
-|:---|:---|
-|``Env Env()``|gets the environment context|
-|``size_t Length()``|gets the count of parameters as unsigned integer|
-|``Value [size_t]``|gets the parameter with unsigned integer as index|
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``Env``|``Env()``|gets the environment context|
+|``size_t``|``Length()``|gets the count of parameters as unsigned integer|
+|``Value``|``[size_t]``|(operator) get the parameter with unsigned integer as index|
 
 #### examples 
 ```c++
@@ -47,20 +49,21 @@ if (info.Length() != 3) // checks the count of parameters
 Value v1 = info[0];     // gets the first parameter as Value
 ```
 
-## ```Value```<br>
+## ``Value``<br>
 **Value** is the base class of all JavaScript datatypes.<br>
-Derived classes also inherit the properties and methods of *Value*.<br>
+Derived classes also inherit the properties and methods of **Value**.<br>
 **Value** can contain any JavaScript datatypes ***Null***, ***Undefined***, ***Boolean***, ***Number***..<br>
 #### create 
-|**Method**|**Description**|
-|:---|:---|
-|```Value Value::From(Env, <ValueType>)```|creates from type|
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``Value``|``Value::From(Env, [ValueType])``|(static) creates from C++ datatype|
 
-Where ```<ValueType>``` is:<br>
+Where ``[ValueType]`` is:<br>
 ```c++
-bool, <IntType>, float, double, const char*, const char16_t*, std::string, std::u16string, Value 
+bool, [IntType], float, double, const char*, const char16_t*, std::string, std::u16string, Value 
 ```
-Where ```<IntType>``` is:<br>
+
+Where ``[IntType]`` is:<br>
 ```c++
 uint8_t, int8_t, uint16_t, int16_t, uint32_t, int32_t, uint64_t, int64_t, size_t
 ```
@@ -75,11 +78,12 @@ Value count = Value::From(env, uint32_t(8));  // creates from uint32_t
 return Value::From(env, true);                // returns with bool
 return Value::From(env, "ok");                // returns with const char* UTF-8
 ```
-|**Method**|**Description**|
-|:---|:---|
-|```bool ==```|operator for compares for strict equals|
-|```bool !=```|operator for compares for not strict equals|
-|```bool StrictEquals(Value)```|compares for strict equals|
+#### compare
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``bool``|``==``|(operator) compare strict equals|
+|``bool``|``!=``|(operator) compare not strict equals|
+|``bool``|``StrictEquals(Value)``|compare strict equals|
 
 #### examples for compare
 ```c++
@@ -90,20 +94,20 @@ if (pi.StrictEquals(txt2)) // compares for strict equals (here false)
     ...
 ```
 #### check datatype
-|**Method**|**Description**|
-|:---|:---|
-|```bool IsEmpty()```|checks for Empty (uninitialized)|
-|```bool IsUndefined()```|checks for Undefined|
-|```bool IsNull()```|checks for Null|
-|```bool IsBoolean()```|checks for Boolean|
-|```bool IsNumber()```|checks for Number|
-|```bool IsString()```|checks for String|
-|```bool IsObject()```|checks for Object|
-|```bool IsArray()```|checks for Array|
-|```bool IsBuffer() ```|checks for Buffer|
-|```bool IsArrayBuffer()```|checks for ArrayBuffer|
-|```bool IsFunction()```|checks for Function|
-|```napi_valuetype Type()```|returns the datatype as [napi_valuetype](https://nodejs.org/api/n-api.html#napi_valuetype)|
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``bool``|``IsEmpty()``|checks for Empty (uninitialized)|
+|``bool``|``IsUndefined()``|checks for Undefined|
+|``bool``|``IsNull()``|checks for Null|
+|``bool``|``IsBoolean()``|checks for Boolean|
+|``bool``|``IsNumber()``|checks for Number|
+|``bool``|``IsString()``|checks for String|
+|``bool``|``IsObject()``|checks for Object|
+|``bool``|``IsArray()``|checks for Array|
+|``bool``|``IsBuffer() ``|checks for Buffer|
+|``bool``|``IsArrayBuffer()``|checks for ArrayBuffer|
+|``bool``|``IsFunction()``|checks for Function|
+|``napi_valuetype``|``Type()``|returns the datatype as enum [napi_valuetype](https://nodejs.org/api/n-api.html#napi_valuetype)|
 
 #### example for check datatype
 ```c++
@@ -116,27 +120,28 @@ switch(info[1].Type()) // execute code depends of datatype of parameter
         ...
 }
 ```
-#### coerces to derived class 
-Boolean ToBoolean()  // coerces to Boolean
-Number ToNumber()    // coerces to Number
-String ToString()    // coerces to String
-Object ToObject()    // coerces to Object
+#### cast to derived class
+|**Returns**|**Method**|**Description**|
+|:---|:---|:---|
+|``Boolean``|``ToBoolean()``|cast to Boolean|
+|``Number``|``ToNumber()``|cast to Number|
+|``String``|``ToString()``|cast to String|
+|``Object``|``ToObject()``|cast to Object|
+|``[DataType]``|``As<[DataType]>()``|cast to [DataType]|
 
-Boolean As<Boolean>()  // coerces to Boolean
-Number As<Number>()    // coerces to Number
-String As<String>()    // coerces to String
-Object As<Object>()    // coerces to Object
-Array As<Array>()      // coerces to Array
-Buffer As<Buffer>()    // coerces to Buffer
-ArrayBuffer As<ArrayBuffer>() // coerces to ArrayBuffer
-Function As<Function>() // coerces to Function
+Where ``[DataType]`` is:<br>
+``
+Boolean, Number, String, Object, Array, Buffer, ArrayBuffer, Function
+``
 
-// examples for coerces to derived class
-Boolean isok = info[0].ToBoolean(); // coerces parameter to Boolean
-Number cnt = info[1].As<Number>();  // coerces parameter to Number
-String str1 = txt1.ToString();      // coerces Value to String 
+Return ``[DataType]`` and parameter ``[DataType]`` must same. 
+#### examples for cast to derived class
+```c++
+Boolean isok = info[0].ToBoolean(); // cast parameter to Boolean
+Number cnt = info[1].As<Number>();  // cast parameter to Number
+String str1 = txt1.ToString();      // cast to String 
 ```
-## ```Boolean```<br>
+## ``Boolean``<br>
 ***Boolean*** is derived from Value.<br>
 ```c++
 // create
