@@ -315,6 +315,7 @@ Array names = obj2.GetPropertyNames(); // get all Object property names
 |``Value``|``[const std::string&()]``|(operator) get property with key std::string|
 |``Value``|``[uint32_t]``|(operator) get property with index uint32_t (used also in **Array**)|
 
+If property not found, returned ***Value*** is ***undefined***.<br> 
 ### example get property
 ```c++
 Value val1 = info[2].ToObject()["num"];      // get parameter Value property with key "num"
@@ -334,7 +335,6 @@ uint32_t = info[0].ToObject()["count"].ToNumber(); // get uint32_t from paramete
 |:---|:---|:---|
 |``bool``|``Set(KeyType, ValueType)``|set property with key ***KeyType*** to value ***ValueType***|
 |``bool``|``[KeyType] = ValueType``|(operator) set property with key ***KeyType*** to value ***ValueType***| 
-#### Returns true if set property successful.
 
 Where ``KeyType`` is:<br>
 ```c++
@@ -348,6 +348,8 @@ Where ``IntType`` is:<br>
 ```c++
 uint8_t, int8_t, uint16_t, int16_t, uint32_t, int32_t, uint64_t, int64_t, size_t
 ```
+Returns true if set successful.<br>
+Property is added if not exist.<br> 
 ### examples set property
 ```c++
 obj1.Set("run", false);             // set property with key "run" to false
@@ -362,7 +364,8 @@ obj1.Set("run", info[0]);            // set property with key "run" from paramet
 |``bool``|``Delete(const char*)``|delete property with key const char*|
 |``bool``|``Delete(const std::string&)``|delete property with key std::string|
 |``bool``|``Delete(uint32_t)``|delete property with index uint32_t (used also in **Array**)|
-#### Returns true if set property successful.
+
+Returns true if delete successful.<br>
 
 ### examples delete property
 ```c++
@@ -402,15 +405,25 @@ uint32_t len = arr2.Length(); // Get length (count of elements)
 |``Value``|``[uint32_t]``|(operator) get element with index uint32_t|
 |``bool``|``Set(uint32_t, ValueType)``|set element to value ***ValueType***|
 |``bool``|``[uint32_t] = ValueType``|(operator) set element to value ***ValueType***|
-|``bool``|``Delete(uint32_t)``|delete elemnt with index uint32_t|
+|``bool``|``Delete(uint32_t)``|delete element with index uint32_t|
 
-``ValueType`` is same as in Object<br>
+Where ``ValueType`` is:<br>
+```c++
+bool, IntType, float, double, const char*, const char16_t*, std::string, std::u16string, Value 
+```
+Where ``IntType`` is:<br>
+```c++
+uint8_t, int8_t, uint16_t, int16_t, uint32_t, int32_t, uint64_t, int64_t, size_t
+```
+If element not found on get, returned ***Value*** is ***undefined***.<br> 
+Returns true if set or delete successful.<br>
+Element is added if not exist and gap is filled with empty ***Value***.<br> 
 
 ### example using methods derived from Object
 ```c++
 Number num = arr1.Get(uint32_t(5)).ToNumber(); // get element with index 5 as Number
 String str = arr2[uint32_t(3)].As<String>();   // get element with index 3 as String
-uint32_t = info[2].As<Array>()[1].ToNumber(); // get uint32_t from parameter with index 2 (use cast)
+uint32_t = info[2].As<Array>()[1].ToNumber();  // get uint32_t from parameter with index 1 (use cast)
 
 arr1[uint32_t(5)] = 15.23;                     // set element with index 5 with number
 arr2.Set(uint32_t(3), "abc");                  // set element with index 3 with string
