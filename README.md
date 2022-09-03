@@ -57,8 +57,9 @@ Enough theory, now let's move on to the practical part.<br>
 ### Chapters
 [🧾Setup Build Environment](setup.md)<br>
 [🧾Create Native Code Example sayhello](sayhello.md)<br>
-[🧾Build Native Code Example sayhello ](build_sayhello.md)<br>
-[🧾Call native module sayhello.node from JavaScript ](call_sayhello.md)<br>
-[🧾Create Native Code Example parameters ](parameters.md)<br>
-[🧾Build Native Code Example parameters ](build_parameters.md)<br>
-[🧾Call native module parameters.node from JavaScript ](call_parameters.md)<br>
+[🧾Build Native Code Example sayhello](build_sayhello.md)<br>
+[🧾Call native module sayhello.node from JavaScript](call_sayhello.md)<br>
+[🧾Create Native Code Example parameters](parameters.md)<br>
+[🧾Build Native Code Example parameters](build_parameters.md)<br>
+[🧾Call native module parameters.node from JavaScript](call_parameters.md)<br>
+[🧾Datatypes and Methods in node-addon-api](datatypes.md)<br>

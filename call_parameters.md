@@ -41,7 +41,7 @@ const mylib = require( "bindings" )( "parameters.node" );
 This line loads the native module ***parameters.node***.<br>
 The ***bindings*** JavaScript module search the native module ***parameters.node***<br>
 and returns the path.<br>
-This module is installed during build in subfolder ```node_modules```.<br> 
+This ***bindings*** module is installed during build in subfolder ```node_modules```.<br> 
 
 This is the output of JavaScript program:
 ```
@@ -70,6 +70,5 @@ Both are same.<br>
 All JavaScript variables are transferred as reference in parameters.<br>
 The native module has changed the JavaScript array.<br>
 
-
-```to be continued```
+[🧾Next: Datatypes and Methods in node-addon-api](datatypes.md)<br>
 
